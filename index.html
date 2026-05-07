@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invictus Group — Brand Mockups</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0f1e;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    .header { text-align: center; margin-bottom: 60px; }
+    .header h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .header h1 span { color: #E77723; }
+    .header p {
+      font-size: 18px;
+      color: #8fa3c0;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .group { color: #E77723; font-size: 14px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      max-width: 1100px;
+      width: 100%;
+    }
+    .card {
+      background: #131c35;
+      border: 1px solid #1e2d50;
+      border-radius: 16px;
+      overflow: hidden;
+      text-decoration: none;
+      color: #fff;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #E77723;
+      box-shadow: 0 20px 60px rgba(231, 119, 35, 0.15);
+    }
+    .card-preview { height: 200px; overflow: hidden; position: relative; }
+    .card-preview img { width: 100%; height: 100%; object-fit: cover; }
+    .card-preview .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,15,30,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1px;
+    }
+    .card-body { padding: 28px 28px 32px; flex: 1; }
+    .card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 14px;
+    }
+    .badge-1 { background: rgba(231,119,35,0.15); color: #E77723; }
+    .badge-2 { background: rgba(46,125,50,0.15); color: #4caf50; }
+    .badge-3 { background: rgba(24,38,82,0.8); color: #5c8aff; border: 1px solid #5c8aff; }
+    .card-body h2 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .card-body p { font-size: 14px; color: #8fa3c0; line-height: 1.6; }
+    .card-tag { margin-top: 20px; font-size: 12px; color: #E77723; font-weight: 600; letter-spacing: 1px; }
+    .card-tag::before { content: "→ "; }
+    footer { margin-top: 60px; text-align: center; font-size: 13px; color: #3a5070; }
+    footer span { color: #E77723; }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="group">Jahan · John · Jarvis</div>
+    <h1>Invictus <span>Group</span></h1>
+    <p>Three brand direction mockups — click any card to preview that concept.</p>
+  </div>
+
+  <div class="cards">
+
+    <a href="concept-1.html" class="card">
+      <div class="card-preview">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#182652 0%,#0a1230 60%,#E77723 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <div style="width:60px;height:60px;border:3px solid #E77723;transform:rotate(45deg);"></div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:2px;">BOLD & MODERN</div>
+        </div>
+        <div class="overlay">Click to open →</div>
+      </div>
+      <div class="card-body">
+        <span class="card-badge badge-1">Concept 1</span>
+        <h2>Bold & Modern</h2>
+        <p>Dark navy hero with orange accents, animated PM dashboard widget, and card grid for services. High-impact, corporate premium.</p>
+        <div class="card-tag">Open mockup</div>
+      </div>
+    </a>
+
+    <a href="concept-2.html" class="card">
+      <div class="card-preview">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#fef9f2 0%,#f5edd8 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;">
+          <div style="font-size:20px;font-family:Georgia,serif;color:#182652;font-weight:bold;">Invictus</div>
+          <div style="font-size:10px;color:#888;letter-spacing:2px;font-family:Georgia,serif;">Warm & Editorial</div>
+        </div>
+        <div class="overlay">Click to open →</div>
+      </div>
+      <div class="card-body">
+        <span class="card-badge badge-2">Concept 2</span>
+        <h2>Warm & Editorial</h2>
+        <p>Cream background, serif typography, magazine split-layout hero with client testimonial. Human, trustworthy, credibility-focused.</p>
+        <div class="card-tag">Open mockup</div>
+      </div>
+    </a>
+
+    <a href="concept-3.html" class="card">
+      <div class="card-preview">
+        <div style="width:100%;height:100%;background:linear-gradient(135deg,#ffffff 0%,#f0f4fa 100%);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
+          <div style="font-size:36px;font-weight:800;color:#182652;letter-spacing:-1px;">IG</div>
+          <div style="font-size:9px;color:#aaa;letter-spacing:3px;">MINIMAL & SWISS</div>
+        </div>
+        <div class="overlay">Click to open →</div>
+      </div>
+      <div class="card-body">
+        <span class="card-badge badge-3">Concept 3</span>
+        <h2>Minimal & Swiss</h2>
+        <p>White background, clean sans typography, large typographic hero, numbered service rows. Clean, precise, competence-focused.</p>
+        <div class="card-tag">Open mockup</div>
+      </div>
+    </a>
+
+  </div>
+
+  <footer>
+    <span>⚡</span> Invictus Group Brand Review &nbsp;·&nbsp; Jahan · John · Jarvis
+  </footer>
+
+</body>
+</html>
