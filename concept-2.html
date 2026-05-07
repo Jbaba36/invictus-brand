@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invictus — Global Project Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #182652;
+  --orange:  #E77723;
+  --green:   #2E7D32;
+  --white:   #FFFFFF;
+  --cream:   #FDFAF6;
+  --warm:    #F5EFE6;
+  --text:    #1C1917;
+  --muted:   #78716C;
+  --border:  #E7E0D5;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; color:var(--text); line-height:1.65; overflow-x:hidden; background:var(--cream); }
+a { text-decoration:none; color:inherit; }
+::selection { background:var(--orange); color:var(--white); }
+
+/* NAV */
+nav {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 80px; background:var(--cream); border-bottom:1px solid var(--border);
+  position:sticky; top:0; z-index:100;
+}
+.nav-logo { display:flex; align-items:center; gap:12px; }
+.logo-mark { width:36px; height:36px; position:relative; }
+.logo-mark::before {
+  content:''; position:absolute; width:36px; height:36px;
+  background:var(--navy); clip-path:polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.logo-mark::after {
+  content:''; position:absolute; width:24px; height:24px; top:6px; left:6px;
+  background:var(--orange); clip-path:polygon(50% 0%, 100% 100%, 0% 100%);
+}
+.nav-logo span { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; letter-spacing:2px; color:var(--navy); }
+.nav-links { display:flex; gap:36px; }
+.nav-links a { font-size:13px; font-weight:500; color:var(--muted); letter-spacing:0.5px; transition:color 0.2s; }
+.nav-links a:hover { color:var(--navy); }
+.nav-cta {
+  border:1.5px solid var(--navy); color:var(--navy); padding:9px 24px;
+  border-radius:4px; font-size:13px; font-weight:600; letter-spacing:0.5px;
+  transition:all 0.2s;
+}
+.nav-cta:hover { background:var(--navy); color:var(--white); }
+
+/* HERO — Magazine editorial style */
+.hero {
+  min-height:85vh; display:grid; grid-template-columns:1fr 1.2fr;
+  background:var(--cream);
+}
+.hero-left {
+  padding:80px 80px 60px;
+  display:flex; flex-direction:column; justify-content:center;
+  border-right:1px solid var(--border);
+}
+.hero-tag {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  color:var(--orange); margin-bottom:32px;
+  display:flex; align-items:center; gap:12px;
+}
+.hero-tag::before { content:''; width:32px; height:1.5px; background:var(--orange); }
+.hero h1 {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(42px,5.5vw,72px);
+  color:var(--navy); line-height:1.05; margin-bottom:28px; font-weight:700;
+}
+.hero h1 em { color:var(--orange); font-style:italic; }
+.hero-sub {
+  font-size:16px; color:var(--muted); line-height:1.8; max-width:440px;
+  margin-bottom:40px; font-family:'Cormorant Garamond',serif; font-size:20px;
+  font-weight:400;
+}
+.hero-actions { display:flex; gap:16px; align-items:center; }
+.btn-primary {
+  background:var(--navy); color:var(--white); padding:13px 28px;
+  border-radius:4px; font-weight:600; font-size:13px; letter-spacing:1px;
+  transition:background 0.2s;
+}
+.btn-primary:hover { background:var(--orange); }
+.btn-text { color:var(--navy); font-size:13px; font-weight:600; border-bottom:1.5px solid var(--orange); padding-bottom:2px; }
+.hero-right {
+  background:var(--navy);
+  display:flex; flex-direction:column; justify-content:center;
+  padding:80px 60px; position:relative; overflow:hidden;
+}
+.hero-right::after {
+  content:''; position:absolute; top:-60px; left:-60px;
+  width:200px; height:200px; border-radius:50%;
+  background:var(--orange); opacity:0.08;
+}
+.hero-right::before {
+  content:''; position:absolute; bottom:-80px; right:-40px;
+  width:300px; height:300px; border-radius:50%;
+  background:var(--green); opacity:0.06;
+}
+.testimonial-quote {
+  font-family:'Cormorant Garamond',serif; font-size:26px;
+  color:rgba(255,255,255,0.9); line-height:1.5; font-style:italic;
+  margin-bottom:32px; position:relative;
+}
+.testimonial-quote::before {
+  content:'\201C'; font-size:80px; color:var(--orange); opacity:0.4;
+  position:absolute; top:-20px; left:-20px; font-style:normal;
+}
+.testimonial-author { color:rgba(255,255,255,0.5); font-size:13px; }
+.testimonial-author strong { color:var(--white); display:block; margin-bottom:4px; font-size:15px; }
+.stat-row {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:18px 0; border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.stat-row:last-child { border:none; }
+.stat-lbl { color:rgba(255,255,255,0.45); font-size:13px; }
+.stat-val { font-size:22px; font-weight:700; color:var(--white); }
+.stat-val.orange { color:var(--orange); }
+.stat-val.green { color:#5DBF6A; }
+
+/* DIVIDER */
+.ornament {
+  text-align:center; padding:32px;
+  color:var(--border); font-size:24px; letter-spacing:16px;
+}
+
+/* SERVICES — clean grid */
+.section { padding:80px; }
+.section-header { max-width:640px; margin-bottom:56px; }
+.section-tag {
+  font-size:11px; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  color:var(--orange); margin-bottom:16px;
+  display:flex; align-items:center; gap:12px;
+}
+.section-tag::before { content:''; width:24px; height:1.5px; background:var(--orange); }
+.section-title {
+  font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,52px);
+  color:var(--navy); line-height:1.1; margin-bottom:16px; font-weight:700;
+}
+.section-sub { font-size:16px; color:var(--muted); line-height:1.75; }
+.services-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+  background:var(--border); border:2px solid var(--border);
+}
+.service-card {
+  background:var(--cream); padding:40px 32px; transition:all 0.3s;
+}
+.service-card:hover { background:var(--white); }
+.service-card:hover .service-num { color:var(--orange); }
+.service-num {
+  font-family:'Cormorant Garamond',serif; font-size:48px; font-weight:700;
+  color:var(--border); margin-bottom:16px; transition:color 0.3s;
+}
+.service-card h3 {
+  font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:700;
+  color:var(--navy); margin-bottom:12px;
+}
+.service-card p { font-size:14px; color:var(--muted); line-height:1.7; }
+
+/* ABOUT */
+.about-section { background:var(--white); }
+.about-split {
+  display:grid; grid-template-columns:1.5fr 1fr;
+  gap:80px; align-items:center;
+}
+.about-image {
+  background:linear-gradient(135deg, var(--navy) 0%, #243478 100%);
+  border-radius:8px; height:400px; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.about-image-text {
+  font-family:'Cormorant Garamond',serif; font-size:80px; font-weight:900;
+  color:rgba(255,255,255,0.06); letter-spacing:4px; user-select:none;
+}
+.about-content .section-tag { margin-bottom:20px; }
+.about-content h2 { margin-bottom:24px; }
+.about-content p { color:var(--muted); margin-bottom:16px; font-size:15px; line-height:1.8; }
+.about-pillars { display:flex; flex-direction:column; gap:16px; margin-top:32px; }
+.pillar {
+  display:flex; align-items:flex-start; gap:16px;
+  padding:16px 0; border-bottom:1px solid var(--border);
+}
+.pillar-icon { font-size:18px; margin-top:2px; }
+.pillar strong { display:block; font-size:15px; color:var(--navy); margin-bottom:4px; }
+.pillar span { font-size:13px; color:var(--muted); }
+
+/* SECTORS */
+.sectors-section { background:var(--warm); }
+.sector-list { display:grid; grid-template-columns:repeat(2,1fr); gap:0; }
+.sector-item {
+  display:flex; align-items:center; gap:20px;
+  padding:24px 0; border-bottom:1px solid var(--border);
+}
+.sector-item:nth-child(odd) { border-right:1px solid var(--border); padding-right:40px; }
+.sector-item:nth-child(even) { padding-left:40px; }
+.sector-num { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:var(--border); flex-shrink:0; }
+.sector-name { font-size:15px; font-weight:600; color:var(--navy); }
+.sector-desc { font-size:13px; color:var(--muted); margin-top:2px; }
+
+/* FOOTER */
+footer {
+  background:var(--navy); padding:64px 80px 32px;
+}
+.footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px; }
+.footer-brand p { font-size:14px; color:rgba(255,255,255,0.4); line-height:1.7; max-width:280px; }
+.footer-col h4 { color:var(--white); font-size:11px; text-transform:uppercase; letter-spacing:2px; margin-bottom:16px; }
+.footer-col a { display:block; font-size:14px; color:rgba(255,255,255,0.4); margin-bottom:10px; transition:color 0.2s; }
+.footer-col a:hover { color:var(--orange); }
+.footer-bottom { border-top:1px solid rgba(255,255,255,0.08); padding-top:24px; font-size:12px; color:rgba(255,255,255,0.25); }
+.footer-bottom a { color:rgba(255,255,255,0.25); margin-left:20px; }
+
+/* RESPONSIVE */
+@media(max-width:1000px) {
+  .hero { grid-template-columns:1fr; }
+  .hero-left { padding:60px 40px 40px; border-right:none; border-bottom:1px solid var(--border); }
+  .hero-right { padding:60px 40px; }
+  .section { padding:60px 40px; }
+  .services-grid { grid-template-columns:1fr 1fr; }
+  .about-split { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:600px) {
+  nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .section { padding:48px 24px; }
+  .services-grid { grid-template-columns:1fr; }
+  .sector-list { grid-template-columns:1fr; }
+  .sector-item:nth-child(odd) { border-right:none; padding-right:0; }
+  .sector-item:nth-child(even) { padding-left:0; }
+  .footer-top { grid-template-columns:1fr; }
+  .footer-bottom { display:flex; flex-direction:column; gap:12px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="logo-mark"></div>
+    <span>INVICTUS</span>
+  </div>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#sectors">Sectors</a>
+    <a href="#why">Why Invictus</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">UAE Licensed — Project Management</p>
+    <h1>The Right Team.<br>The Right<br><em>Framework.</em></h1>
+    <p class="hero-sub">Invictus acts as Project Manager for global energy, infrastructure, and commodity projects — providing the rigour and expertise that complex ventures demand.</p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#about" class="btn-text">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="testimonial-quote">They brought a level of strategic clarity and execution discipline that transformed our entire programme. We wouldn't have delivered without them.</div>
+    <div class="testimonial-author">
+      <strong>Senior VP, Energy Development</strong>
+      <span>UAE — 2024 Engagement</span>
+    </div>
+    <div style="margin-top:48px;">
+      <div class="stat-row"><span class="stat-lbl">Active Projects</span><span class="stat-val">12</span></div>
+      <div class="stat-row"><span class="stat-lbl">Markets Active</span><span class="stat-val orange">14+</span></div>
+      <div class="stat-row"><span class="stat-lbl">Commodity Sectors</span><span class="stat-val">6</span></div>
+      <div class="stat-row"><span class="stat-lbl">PMO Frameworks Deployed</span><span class="stat-val green">8</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">✦ ✦ ✦</div>
+
+<!-- SERVICES -->
+<section class="section" id="services" style="background:var(--cream);">
+  <div class="section-header">
+    <p class="section-tag">What We Do</p>
+    <h2 class="section-title">Project Management<br>at Every Scale</h2>
+    <p class="section-sub">From standalone projects to enterprise-wide programmes, we provide the frameworks, people, and oversight to get complex work done.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <h3>Programme & Portfolio Management</h3>
+      <p>Strategic oversight of multiple projects aligned to business objectives. Managing dependencies, resources, and risk across your entire portfolio.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <h3>Agile & Hybrid Delivery</h3>
+      <p>Flexible delivery frameworks adapted to your organisation. Blending Agile and traditional approaches to match project complexity.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <h3>Project Recovery & Turnaround</h3>
+      <p>Struggling projects brought back on track through root-cause diagnosis, baseline resets, and structured recovery plans.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <h3>PMO Design & Implementation</h3>
+      <p>We design and stand up Project Management Offices tailored to your organisation — governance, tools, reporting, and capability building.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <h3>Stakeholder & Change Management</h3>
+      <p>Keeping sponsors, boards, and delivery teams aligned through structured communication and organisational change frameworks.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <h3>Risk, Governance & Reporting</h3>
+      <p>Board-ready risk frameworks, governance structures, and real-time reporting dashboards that keep stakeholders informed and confident.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about-section" id="about">
+  <div class="about-split">
+    <div class="about-content">
+      <p class="section-tag">Who We Are</p>
+      <h2 class="section-title">Built for Projects<br>That Matter.</h2>
+      <p>Invictus is a UAE-licensed project management organisation with deep expertise in energy, infrastructure, and commodity trading projects across global markets.</p>
+      <p>Through our development and physical commodity trading groups, we bring an accomplished combination of knowledge, skill, experience, and commitment to every engagement.</p>
+      <div class="about-pillars">
+        <div class="pillar">
+          <div class="pillar-icon" style="color:var(--orange)">◈</div>
+          <div><strong>UAE Trade License</strong><span>Licensed under UAE federal law — international credibility and governance compliance.</span></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon" style="color:var(--green)">◆</div>
+          <div><strong>Global Network</strong><span>Partners and advisors operating at the top echelons of industry and government.</span></div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon" style="color:var(--navy)">▲</div>
+          <div><strong>End-to-End Delivery</strong><span>From project origination to commissioning — we manage the full lifecycle.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="about-image">
+      <div class="about-image-text">INVICTUS</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="section sectors-section" id="sectors">
+  <div class="section-header">
+    <p class="section-tag">Sectors</p>
+    <h2 class="section-title">Projects Across the Energy<br>& Commodities Spectrum</h2>
+  </div>
+  <div class="sector-list">
+    <div class="sector-item">
+      <div class="sector-num">01</div>
+      <div><div class="sector-name">Renewable Energy — Solar & Wind</div><div class="sector-desc">Utility-scale solar and wind development, design, build and commissioning.</div></div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-num">02</div>
+      <div><div class="sector-name">Energy Development</div><div class="sector-desc">Managing increasing complexity of large, multi-faceted energy programmes.</div></div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-num">03</div>
+      <div><div class="sector-name">Petroleum Commodities</div><div class="sector-desc">End-to-end project and trading support for petroleum-based commodities.</div></div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-num">04</div>
+      <div><div class="sector-name">Agricultural Commodities</div><div class="sector-desc">Origin, logistics, and project coordination for agricultural commodity flows.</div></div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-num">05</div>
+      <div><div class="sector-name">Minerals & Metals</div><div class="sector-desc">Project development and management across global mineral and metal supply chains.</div></div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-num">06</div>
+      <div><div class="sector-name">Gold & Diamonds</div><div class="sector-desc">Specialist project management for precious metals and gemstone projects.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="nav-logo" style="margin-bottom:20px;">
+        <div class="logo-mark"></div>
+        <span style="color:white;">INVICTUS</span>
+      </div>
+      <p>UAE-licensed project management for global energy, infrastructure, and commodity trading projects.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Programme Management</a>
+      <a href="#">Agile Delivery</a>
+      <a href="#">Project Recovery</a>
+      <a href="#">PMO Design</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Our Sectors</a>
+      <a href="#">Our Locations</a>
+      <a href="#">Giving Back</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="#">info@invictus.nu</a>
+      <a href="#">Get in Touch</a>
+      <a href="#">Our Locations</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Invictus. All rights reserved.</span>
+    <div style="float:right;">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
